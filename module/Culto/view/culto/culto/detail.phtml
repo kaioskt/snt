@@ -1,0 +1,33 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="panel-title">
+            Detalhes Contato ID <?php echo $this->id; ?>            
+        </div>
+    </div>
+    <?php $form = $this->form; ?>
+    
+    <div class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>Data:</dt>
+            <dd><?php echo $form->get('fiData')->getValue()->format('d/m/Y'); ?></dd>
+            <dt>Tipo:</dt>
+            <dd><?php echo $form->get('tipo')->getValue(); ?></dd>
+            <dt>Tema:</dt>
+            <dd><?php echo $form->get('tema')->getValue(); ?></dd>
+            <dt>Preletor:</dt>
+            <dd><?php echo $form->get('preletor')->getValue(); ?></dd>
+            <dt>Qtde Pessoas:</dt>
+            <dd><?php echo $form->get('qtPessoas')->getValue(); ?></dd>
+            <dt>Qtde Visitantes:</dt>
+            <dd><?php echo $form->get('qtVisitas')->getValue(); ?></dd>
+            <dt>Qtde Crianças:</dt>
+            <dd><?php echo $form->get('qtCriancas')->getValue(); ?></dd>
+            <dt>Anexo:</dt>
+            <dd><?php echo $form->get('imgAnexo')->getValue(); ?></dd>
+        </dl>
+    </div>
+    <div class="panel-footer">
+        <a href="<?php echo $this->url('culto', array('action' => 'edit', 'id' => $this->id)); ?>" class="btn btn-warning btn-sm">Editar Contato</a>
+        <a href="<?php echo $this->url('home'); ?>" class="btn btn-default btn-sm">Voltar</a>
+    </div>
+</div>
