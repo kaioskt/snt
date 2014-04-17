@@ -14,7 +14,7 @@ class CultoForm extends Form{
 		parent::__construct('cultoform');
 
 		$this->setAttribute('method', 'post');
-		//$this->setInputFilter(new CultoFilter());
+		$this->setInputFilter(new CultoFilter());
 
 		$this->add(array(
 				'name' => 'id',
@@ -24,7 +24,6 @@ class CultoForm extends Form{
 				'name' => 'cultoData',
 				'type' => 'DateTime',
 				'options' => array(
-						'format' => 'd/m/Y',
 						'label' =>'Data:'
 				),
 				'attributes' => array(

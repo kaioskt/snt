@@ -6,7 +6,7 @@ use Zend\File\Transfer\Adapter\FilterPluginManager;
 use Zend\Filter\File\Rename;
 
 use Zend\Http\PhpEnvironment\Request;
-
+use Culto\Controller\Plugin\Mkdir;
 use Zend\View\Model\ViewModel;
 
 class CultoController extends CrudController{
@@ -35,15 +35,21 @@ class CultoController extends CrudController{
 				
 				//UPLOAD***
 				$imageAdapter = new \Zend\File\Transfer\Adapter\Http(); 
+			
+			//	$imageAdapter->setDestination('./data/upload');
+				$pieces = explode("/", $post['cultoData']);
+				$pasta = $pieces[2].'-'.$pieces[1].'-'.$pieces[0];
 				
-				/*$filter = new Rename(array(
-						"target"    => "./data/uploads/newfile.txt",
-						"randomize" => true,
-				));*/
-				//print_r(__FILE__); exit;
-				$imageAdapter->setDestination('D:\xampp\htdocs\container-root\public\img\upload\docs');
-							//->setFilters($filter)
+				$diretorio = $this->getRequest()->getServer('DOCUMENT_ROOT', false) . '/public/upload/'.$pasta.'/';
 				
+				//print_r($diretorio); exit;
+				
+	
+				if ($this->Mkdir()->verifica($diretorio)) {
+				} else {
+					 $this->Mkdir()->criarDiretorio($diretorio); 
+					 $imageAdapter->setDestination($diretorio);
+				}
 				
 				if ($imageAdapter->isValid()) {
 					$imageAdapter->receive();

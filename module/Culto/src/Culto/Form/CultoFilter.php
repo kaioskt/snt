@@ -6,13 +6,13 @@ class CultoFilter extends InputFilter{
 
 	public function __construct(){
 			
-		$this->add(array(
+		/*$this->add(array(
 				'name' => 'id',
 				'filters' => array(
 						array('name' => 'StripTags'),
 						array('name' => 'StringTrim'),
 				),
-		));
+		));*/
 
 		$this->add(array(
 				'name' => 'cultoData',
@@ -21,6 +21,26 @@ class CultoFilter extends InputFilter{
 						array('name' => 'StripTags'),
 						array('name' => 'StringTrim'),
 				),
+				'validators' => array(
+						array(
+								'name' => 'NotEmpty',
+								'options' => array(
+										'messages' => array(
+												'isEmpty' => 'Nao pode estar em branco',
+										),
+								),
+						),
+						array(
+								'name' => 'Date',
+								'options' => array(
+										'format' => 'd/m/Y',
+										'messages' => array(
+												'dateInvalidDate' => 'O formato da Data parece esta incorreto.',
+												'dateFalseFormat' => 'A entrada nao se encaixa no formato de data: Dia/Mes/Ano.'
+												),
+								),
+						),
+				),	
 		));
 
 		$this->add(array(
@@ -44,7 +64,7 @@ class CultoFilter extends InputFilter{
 								'name' => 'NotEmpty',
 								'options' => array(
 										'messages' => array(
-												'isEmpty' => 'Não pode estar em branco'
+												'isEmpty' => 'Nao pode estar em branco',
 										),
 								),
 						),
@@ -63,7 +83,7 @@ class CultoFilter extends InputFilter{
 								'name' => 'NotEmpty',
 								'options' => array(
 										'messages' => array(
-												'isEmpty' => 'Não pode estar em branco'
+												'isEmpty' => 'Nao pode estar em branco'
 										),
 								),
 						),
@@ -72,7 +92,7 @@ class CultoFilter extends InputFilter{
 
 		$this->add(array(
 				'name' => 'tema',
-				'required' => true,
+				//'required' => true,
 				'filters' => array(
 						array('name' => 'StripTags'),
 						array('name' => 'StringTrim'),
@@ -82,7 +102,7 @@ class CultoFilter extends InputFilter{
 								'name' => 'NotEmpty',
 								'options' => array(
 										'messages' => array(
-												'isEmpty' => 'Não pode estar em branco'
+												'isEmpty' => 'Nao pode estar em branco'
 										),
 								),
 						),
@@ -110,7 +130,7 @@ class CultoFilter extends InputFilter{
 								'name' => 'NotEmpty',
 								'options' => array(
 										'messages' => array(
-												'isEmpty' => 'Não pode estar em branco'
+												'isEmpty' => 'Nao pode estar em branco'
 										),
 								),
 						),
@@ -219,9 +239,9 @@ class CultoFilter extends InputFilter{
 		));
 		
 				
-		$this->add(array(
-				'name' => 'anexos',
-				'required' => true,
+		//$this->add(array(
+				//'name' => 'anexos',
+				//'required' => true,
 				/*'validators' => array(
 						array(	'name' => 'filesize',
 								'options' => array(
@@ -236,7 +256,7 @@ class CultoFilter extends InputFilter{
 				        "randomize" => true,
 				    ),
 				))*/
-		));
+		//));
 	}
 
 

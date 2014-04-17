@@ -52,27 +52,27 @@ $this->headTitle($title);
 				<td><?php echo $this->escapeHtml($entity[$i]->getTema());?></td>
 				<td><?php echo $this->escapeHtml($entity[$i]->getTxtBiblico());?></td>
 				<td><?php echo $this->escapeHtml($entity[$i]->getNumPessoas());?></td>
-				<td><a class="btn btn-xs btn-warning" title="Editar"
+				<td><a class="btn btn-sm btn-warning" title="Editar"
 					href="<?php
 									echo $this->url('culto',
 										array('controller'=>'CultoController',
 											'action'=>'edit',
 											'id'=>$entity[$i]->getId())); ?>"><span
 						class="glyphicon glyphicon-pencil"></span> </a> <a
-					class="btn btn-xs btn-info" title="Visualizar"
+					class="btn btn-sm btn-info" title="Visualizar"
 					href="<?php
 									echo $this->url('culto',
 										array('controller'=>'CultoController',
 											'action'=>'detail',
 											'id'=>$entity[$i]->getId())); ?>"><span
-						class="glyphicon glyphicon-eye-open"></span> </a> <a
-					class="btn btn-xs btn-danger" title="Deletar"
-					href="<?php
+						class="glyphicon glyphicon-eye-open"></span> </a> <!-- a
+					class="btn btn-sm btn-danger" title="Deletar"
+					href="< ?php
 										echo $this->url('culto',
 											array('controller'=>'CultoController',
 													'action'=>'delete',
 													'id'=>$entity[$i]->getId())); ?>"><span
-						class="glyphicon glyphicon-trash"></span> </a>
+						class="glyphicon glyphicon-trash"></span> </a>-->
 				</td>
 			</tr>
 

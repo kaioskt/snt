@@ -81,7 +81,7 @@ abstract class CrudController extends AbstractActionController{
 		if ($request->isPost()) {			
 							
 			$form->setData($request->getPost());
-			
+			//print_r($form); exit;
 			
 			if ($form->isValid()) {
 				$service = $this->getServiceLocator()->get($this->service);
@@ -94,7 +94,7 @@ abstract class CrudController extends AbstractActionController{
 						$this->route, 
 						array('controller' => $this->controller));
 			}else{
-				$this->flashMessenger()->addErrorMessage("Erro ao editar as informações.");
+				$this->flashMessenger()->addErrorMessage("Erro ao editar as informacoes.");
 			}
 		}
 		return array(
@@ -137,7 +137,7 @@ abstract class CrudController extends AbstractActionController{
 	
 	
 	
-	public function deleteAction(){
+	/*public function deleteAction(){
 		
 		$id = (int) $this->params()->fromRoute('id', 0);
 		
@@ -155,7 +155,7 @@ abstract class CrudController extends AbstractActionController{
 						$this->route,
 						array('controller' => $this->controller));
 				}
-	}
+	}*/
 	
 	protected function getEm(){
 		if(null === $this->em)

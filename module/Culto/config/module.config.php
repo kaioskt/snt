@@ -41,7 +41,7 @@ return array(
 						'image' => array(
 								'type'    => 'Literal',
 								'options' => array(
-										'route'    => '/img/upload/docs/',
+										'route'    => 'http://snto.hol.es/data/upload/',
 										'defaults' => array(
 												'controller' => 'CultoController',
 												'action'     => 'index',
@@ -103,4 +103,9 @@ return array(
             ),
         ),
     ),
+		'controller_plugins' => array(
+				'invokables' => array(
+						'Mkdir' => __NAMESPACE__ . '\Controller\Plugin\Mkdir'
+				)
+		),
 );
