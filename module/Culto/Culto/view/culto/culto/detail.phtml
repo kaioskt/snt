@@ -1,0 +1,72 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="panel-title">
+            Detalhes Contato ID <?php echo $this->id; ?>            
+        </div>
+    </div>
+    <?php $form = $this->form; ?>
+    
+    <div class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>Data:</dt>
+            <dd><?php echo $form->get('cultoData')->getValue(); ?></dd>
+            <dt>Pastor:</dt>
+            <dd><?php echo $form->get('nomePastor')->getValue(); ?></dd>
+            <dt>Preleitor:</dt>
+            <dd><?php echo $form->get('preletor')->getValue(); ?></dd>
+            <dt>Reunião:</dt>
+            <dd><?php echo $form->get('reuniao')->getValue(); ?></dd>
+            <dt>Tema:</dt>
+            <dd><?php echo $form->get('tema')->getValue(); ?></dd>
+            <dt>Texto Biblico:</dt>
+            <dd><?php echo $form->get('txtBiblico')->getValue(); ?></dd>
+            <dt>Numero de Pessoas:</dt>
+            <dd><?php echo $form->get('numPessoas')->getValue(); ?></dd>
+            <dt>Numero de Lideres:</dt>
+            <dd><?php echo $form->get('numLideres')->getValue(); ?></dd>
+            <dt>Num. Consolidações:</dt>
+            <dd><?php echo $form->get('numConsolid')->getValue(); ?> </dd>
+            
+            
+            <dt>Dinheiro Dizimos:</dt>
+            <dd><?php echo 'R$: ' . $form->get('dnhDizimos')->getValue(); ?></dd>
+            <dt>Cheque Dizimos:</dt>
+            <dd><?php echo 'R$: ' . $form->get('chqDizimos')->getValue(); ?></dd>
+            <dt>Moedas Dizimos:</dt>
+            <dd><?php echo 'R$: ' . $form->get('moeDizimos')->getValue(); ?></dd>
+            
+            
+            <dt>Dinheiro Ofertas:</dt>
+            <dd><?php echo 'R$: ' . $form->get('dnhOfertas')->getValue(); ?></dd>
+            <dt>Cheque Ofertas:</dt>
+            <dd><?php echo 'R$: ' . $form->get('chqOfertas')->getValue(); ?></dd>
+            <dt>Moedas Ofertas:</dt>
+            <dd><?php echo 'R$: ' . $form->get('moeOfertas')->getValue(); ?></dd>
+            
+            <dt>Din. Parc. de Deus:</dt>
+            <dd><?php echo 'R$: ' . $form->get('dnhParcDeus')->getValue(); ?></dd>
+            <dt>Cheque Parc. de Deus:</dt>
+            <dd><?php echo 'R$: ' . $form->get('chqParcDeus')->getValue(); ?></dd>
+            <dt>Moe. Parc. de Deus:</dt>
+            <dd><?php echo 'R$: ' . $form->get('moeParcDeus')->getValue(); ?></dd>
+            
+	        <?php 
+	            $pieces = explode("/", $form->get('cultoData')->getValue());
+	            $pasta = $pieces[2].'-'.$pieces[1].'-'.$pieces[0];
+            //print_r($pasta); exit;
+            ?>
+            
+            <dt>Anexo:</dt>
+            <dd><a class="btn btn-sm btn-info"  target="_blank" title="Anexos"
+					href="<?php
+									echo 'http://snto.hol.es/public/upload/'. $pasta .'/' . $form->get('anexos')->getValue(); ?>"><span
+						class="glyphicon glyphicon-folder-open"></span> </a> </dd>
+            
+            
+        </dl>
+    </div>
+    <div class="panel-footer">
+        <a href="<?php echo $this->url('culto', array('action' => 'edit', 'id' => $this->id)); ?>" class="btn btn-warning btn-sm">Editar Contato</a>
+        <a href="<?php echo $this->url('home'); ?>" class="btn btn-default btn-sm">Voltar</a>
+    </div>
+</div>
